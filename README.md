@@ -1,34 +1,48 @@
-# Homebrew Tap for mcpx
+# cs50victor's Homebrew Tap
 
-[mcpx](https://github.com/cs50victor/mcpx) is a lightweight CLI for interacting with MCP (Model Context Protocol) servers.
+Homebrew tap for cs50victor's CLI tools.
 
-## Installation
-
-```bash
-brew tap cs50victor/mcpx
-brew install mcpx
-```
-
-## Usage
+## Install
 
 ```bash
-mcpx                          # List all servers and tools
-mcpx <server>                 # Show server's tools
-mcpx <server>/<tool>          # Show tool schema
-mcpx <server>/<tool> '<json>' # Call tool with args
+brew tap cs50victor/tap
 ```
 
-## Current Version
+## Install Packages
 
-v1.7.1
+```bash
+# Install tokenproxy
+brew install cs50victor/tap/tokenproxy
 
-## Updating
+# Install mcpx
+brew install cs50victor/tap/mcpx
+```
+
+## Packages
+
+### Formulae
+
+- `tokenproxy` — Small, fast Rust proxy for OpenAI-compatible agent traffic
+- `mcpx` — Lightweight CLI for interacting with MCP (Model Context Protocol) servers
+
+## Updating Formulae
+
+Run the `Update Formula` workflow with:
+
+- `formula`: formula name, e.g. `tokenproxy`
+- `tag`: release tag, e.g. `v0.1.4`
+- `repository`: source repository, e.g. `cs50victor/tokenproxy`
+- `artifact_template`: release asset template, e.g. `tokenproxy-v{version}-{target}.tar.gz`
+
+## Update / Uninstall
 
 ```bash
 brew update
-brew upgrade mcpx
+brew upgrade
+
+brew uninstall <formula>
 ```
 
-## License
+## Notes
 
-MIT
+- Run `brew info cs50victor/tap/<name>` for per-tool caveats.
