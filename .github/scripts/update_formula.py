@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import os
 import pathlib
 import re
@@ -23,10 +24,16 @@ USER_AGENT = "steipete-homebrew-tap-updater"
 
 
 def sha256(url: str) -> str:
-    headers = {"User-Agent": USER_AGENT}
     token = os.environ.get("GITHUB_TOKEN")
     if token and url.startswith("https://github.com/"):
+        api_url = github_release_asset_api_url(url, token)
+        if api_url:
+            url = api_url
+
+    headers = {"User-Agent": USER_AGENT}
+    if token and url.startswith("https://api.github.com/"):
         headers["Authorization"] = f"Bearer {token}"
+        headers["Accept"] = "application/octet-stream"
 
     request = urllib.request.Request(url, headers=headers)
     digest = hashlib.sha256()
@@ -34,6 +41,35 @@ def sha256(url: str) -> str:
         while chunk := response.read(1024 * 1024):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def github_release_asset_api_url(url: str, token: str) -> str | None:
+    parsed = urllib.parse.urlparse(url)
+    parts = parsed.path.strip("/").split("/")
+    if len(parts) < 6 or parts[2:4] != ["releases", "download"]:
+        return None
+
+    owner, repo = parts[0], parts[1]
+    tag = urllib.parse.unquote(parts[4])
+    asset_name = urllib.parse.unquote(parts[-1])
+    release_url = f"https://api.github.com/repos/{owner}/{repo}/releases/tags/{urllib.parse.quote(tag, safe='')}"
+    request = urllib.request.Request(
+        release_url,
+        headers={
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {token}",
+            "User-Agent": USER_AGENT,
+        },
+    )
+
+    with urllib.request.urlopen(request) as response:
+        release = json.load(response)
+
+    for asset in release.get("assets", []):
+        if asset.get("name") == asset_name:
+            return asset.get("url")
+
+    raise SystemExit(f"release asset {asset_name} was not found in {owner}/{repo}@{tag}")
 
 
 def replace_once(text: str, pattern: str, replacement: str, description: str) -> str:
