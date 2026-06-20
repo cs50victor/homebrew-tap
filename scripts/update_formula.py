@@ -271,6 +271,8 @@ def seed_formula(formula: str, repository: str, version: str, description: str, 
             tag=f"v{version}",
             target=target,
         )
+        if artifact.startswith(("https://", "http://")):
+            return artifact
         return f"https://github.com/{repository}/releases/download/v#{{version}}/{artifact}"
 
     class_name = ruby_class_name(formula)
@@ -327,6 +329,8 @@ def target_url(
         tag=tag,
         target=artifact_target,
     )
+    if artifact.startswith(("https://", "http://")):
+        return artifact
     return f"https://github.com/{repository}/releases/download/{tag}/{artifact}"
 
 
@@ -702,7 +706,10 @@ def main() -> int:
                 tag=args.tag,
                 target=artifact_target,
             )
-            url = f"https://github.com/{args.repository}/releases/download/{args.tag}/{artifact}"
+            if artifact.startswith(("https://", "http://")):
+                url = artifact
+            else:
+                url = f"https://github.com/{args.repository}/releases/download/{args.tag}/{artifact}"
             digest = sha256(url)
             existing_url = match.group("url")
             replacement_url = url
