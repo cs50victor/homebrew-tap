@@ -6,21 +6,21 @@ class Mainroom < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/cs50victor/mainroom/releases/download/v#{version}/mainroom_#{version}_darwin_arm64.tar.gz"
-      sha256 "477a0d08d04d20167287f25b56d659cea78aedc13d0063ad021163b237e6ee36"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_darwin_arm64.tar.gz"
+      sha256 "c67fe84bb3161a882e92643e34a0045c5f313954ba3c362d58c0d6d3060aa422"
     else
-      url "https://github.com/cs50victor/mainroom/releases/download/v#{version}/mainroom_#{version}_darwin_amd64.tar.gz"
-      sha256 "408cbe6000e2032552c90d9f1148e391fb7e08fffdb96138ab993594e525366a"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_darwin_amd64.tar.gz"
+      sha256 "c0f7778d3b438302001be432357cf7a5df55ab0aefe2cb96da7a538cbc3602a8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/cs50victor/mainroom/releases/download/v#{version}/mainroom_#{version}_linux_arm64.tar.gz"
-      sha256 "6ceb79a55afa56fed48c37f80a14dc2c63d53f53136632355a278bb4805b974c"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_linux_arm64.tar.gz"
+      sha256 "8dd82df463c94dac84beaede4d0a596a96b450cdcb78b568acb8d0c1cb33630b"
     else
-      url "https://github.com/cs50victor/mainroom/releases/download/v#{version}/mainroom_#{version}_linux_amd64.tar.gz"
-      sha256 "86c934db99ddb393c1f9532e188246c4c91cc9f4e3fb90641e7467d3e1f90630"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_linux_amd64.tar.gz"
+      sha256 "faa44adcff080a80ebfceca0d30aba9134878306190c8cf0e324da545c7b083d"
     end
   end
 
