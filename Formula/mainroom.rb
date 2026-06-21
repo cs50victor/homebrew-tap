@@ -1,26 +1,26 @@
 class Mainroom < Formula
   desc "Mainroom command-line tool"
   homepage "https://github.com/cs50victor/mainroom"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_darwin_arm64.tar.gz"
-      sha256 "c67fe84bb3161a882e92643e34a0045c5f313954ba3c362d58c0d6d3060aa422"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.1/mainroom_0.1.1_darwin_arm64.tar.gz"
+      sha256 "dc2ac5222c92d35e38e2ae2092271fb3500d04a2e9cac00bb804ed1d6bcd70df"
     else
-      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_darwin_amd64.tar.gz"
-      sha256 "c0f7778d3b438302001be432357cf7a5df55ab0aefe2cb96da7a538cbc3602a8"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.1/mainroom_0.1.1_darwin_amd64.tar.gz"
+      sha256 "37ea159f222717afb6a3d5f0b50893dafdf8885bbb61174f135481b20be31843"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_linux_arm64.tar.gz"
-      sha256 "8dd82df463c94dac84beaede4d0a596a96b450cdcb78b568acb8d0c1cb33630b"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.1/mainroom_0.1.1_linux_arm64.tar.gz"
+      sha256 "e49fe636a86caa21a66b678da4e9356cf338edadee308848902cca13ea0f98fb"
     else
-      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.0/mainroom_0.1.0_linux_amd64.tar.gz"
-      sha256 "faa44adcff080a80ebfceca0d30aba9134878306190c8cf0e324da545c7b083d"
+      url "https://pub-0f2e7d3d4356465db47f0ff4626ec2a8.r2.dev/mainroom/v0.1.1/mainroom_0.1.1_linux_amd64.tar.gz"
+      sha256 "4994478e2f3491fbceb572eb0f35d38aeef46e1ddabe51b3c8db8525fbb583e2"
     end
   end
 
