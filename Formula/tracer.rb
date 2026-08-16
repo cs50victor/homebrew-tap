@@ -4,6 +4,9 @@ class Tracer < Formula
   version "0.1.0"
   license "MIT"
 
+  depends_on "bat"
+  depends_on "gh"
+
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/cs50victor/tracer/releases/download/v#{version}/tracer_#{version}_darwin_arm64.tar.gz"
@@ -26,6 +29,13 @@ class Tracer < Formula
 
   def install
     bin.install "tracer"
+  end
+
+  def caveats
+    <<~EOS
+      Code previews require Ghostty. On macOS, install it with:
+        brew install --cask ghostty
+    EOS
   end
 
   test do

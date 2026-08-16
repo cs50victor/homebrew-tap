@@ -16,6 +16,9 @@ brew install cs50victor/tap/tokenproxy
 
 # Install mcpx
 brew install cs50victor/tap/mcpx
+
+# Install tracer
+brew install cs50victor/tap/tracer
 ```
 
 ## Packages
@@ -24,6 +27,7 @@ brew install cs50victor/tap/mcpx
 
 - `tokenproxy` — Small, fast Rust proxy for OpenAI-compatible agent traffic
 - `mcpx` — Lightweight CLI for interacting with MCP (Model Context Protocol) servers
+- `tracer` — Terminal code walkthrough and review tools for engineers and AI agents
 
 ## Updating Formulae
 
