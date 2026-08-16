@@ -8,21 +8,21 @@ class Tracer < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/cs50victor/tracer/releases/download/v0.1.0/tracer_0.1.0_darwin_arm64.tar.gz"
-      sha256 "abde1b5c7311638e69cdd3bac040e82626b8bd05aae558c2c50026e71bbff862"
+      url "https://github.com/cs50victor/tracer/releases/download/v0.1.1/tracer_0.1.1_darwin_arm64.tar.gz"
+      sha256 "cedfda421cfbb37aeeab5af115f88d6b1abb819ac2f5d86ee08cf38dc525b19c"
     else
-      url "https://github.com/cs50victor/tracer/releases/download/v0.1.0/tracer_0.1.0_darwin_amd64.tar.gz"
-      sha256 "bb0f84bf6807fd5b51f14bf612854513620d8a038b312da349ad387c886a935c"
+      url "https://github.com/cs50victor/tracer/releases/download/v0.1.1/tracer_0.1.1_darwin_amd64.tar.gz"
+      sha256 "1899c39d40884b5224f9ce9bbd29f502c2fe199f1a6a40f5fcb518d7333bbc66"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/cs50victor/tracer/releases/download/v0.1.0/tracer_0.1.0_linux_arm64.tar.gz"
-      sha256 "39c852b4bdd111a4423bbc3a5ae6c1b99d55f694697f10d62369f5ed528210d5"
+      url "https://github.com/cs50victor/tracer/releases/download/v0.1.1/tracer_0.1.1_linux_arm64.tar.gz"
+      sha256 "94fc89cad6166e0e739ff25b4f7ee75e95b917e35296073b198fbe2632c30830"
     else
-      url "https://github.com/cs50victor/tracer/releases/download/v0.1.0/tracer_0.1.0_linux_amd64.tar.gz"
-      sha256 "24dcbc5fb0d18ce6a332510419ae49886a9a37d3cd1eec10d571102a280414c4"
+      url "https://github.com/cs50victor/tracer/releases/download/v0.1.1/tracer_0.1.1_linux_amd64.tar.gz"
+      sha256 "3ce90881d9ed31285c9877b076579821bb542c166519d9a87b42b60a53be3d83"
     end
   end
 
