@@ -1,6 +1,6 @@
 cask "taffy" do
-  version "0.1.0"
-  sha256 "9db0e3cc7ecd2c3f1feeffa2f4667a7da0ab0ce5a319f9899184a7529873d0fa"
+  version "0.1.1"
+  sha256 "1369d723654721bf82664a7464565af601dfe018bb8c25121446309a4bcf920a"
 
   url "https://github.com/cs50victor/taffy/releases/download/v#{version}/taffy-#{version}-macos-arm64.zip"
   name "Taffy"
