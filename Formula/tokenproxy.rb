@@ -1,28 +1,28 @@
 class Tokenproxy < Formula
   desc "Small, fast Rust proxy for OpenAI-compatible agent traffic"
   homepage "https://github.com/cs50victor/tokenproxy"
-  version "0.1.21"
+  version "0.1.22"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/cs50victor/tokenproxy/releases/download/v#{version}/tokenproxy-v#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "5dc6e9cd7a464f7c89e1b77962113dba09530b97759a63f541cfb4eb9cee665d"
+      sha256 "46c3f0af6956ed9176817a92de1cc02a664968262eedfeeb349a5a8785a44c8f"
     end
     on_intel do
       url "https://github.com/cs50victor/tokenproxy/releases/download/v#{version}/tokenproxy-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "1e00c318d7fca4a206948bded32f6c73ddde84592885035c1675d11c86ee7bc7"
+      sha256 "67365496cc7da181df4f5b8a60d85c80f4d845a1591c65cebff112e6598561d3"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/cs50victor/tokenproxy/releases/download/v#{version}/tokenproxy-v#{version}-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "1ec67a0a30eff542a41c1b19fa1a9188bf5fb44e79f34ee46a3eac431f9f9420"
+      sha256 "1a258a0a782ca020fed5f9c868dc79e73bdc6b05382469e0ac2faffe5d7e5f4b"
     end
     on_intel do
       url "https://github.com/cs50victor/tokenproxy/releases/download/v#{version}/tokenproxy-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "ab236c658900afe56657c7d7c1bbe00c2e1dbc76581b6c5354dae2f3f2dc61c8"
+      sha256 "73307050ae9a387afcd1531806933751d6db793c5d408c763bebe8de72c16dfa"
     end
   end
 
