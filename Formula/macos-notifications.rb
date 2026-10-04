@@ -2,7 +2,7 @@ class MacosNotifications < Formula
   desc "Local archive and terminal browser for captured macOS notifications"
   homepage "https://github.com/cs50victor/macos-notifications"
   url "https://github.com/cs50victor/macos-notifications/releases/download/v0.2.0/macos-notifications-v0.2.0-source.tar"
-  sha256 "32a67af2abe1cc2c286222e860cfaa99fb24d310b63078496ccfb860bc93e044"
+  sha256 "e87829ad0d6033d61ba5d388ffa8470834ac7c05be205a611b54bf029fc39ebf"
   license "MIT"
 
   depends_on "go" => :build
