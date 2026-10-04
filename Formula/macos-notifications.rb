@@ -2,7 +2,7 @@ class MacosNotifications < Formula
   desc "Local archive and terminal browser for captured macOS notifications"
   homepage "https://github.com/cs50victor/macos-notifications"
   url "https://github.com/cs50victor/macos-notifications/releases/download/v0.2.0/macos-notifications-v0.2.0-source.tar"
-  sha256 "b13be76fad40ad4568d577ae3d7a9a578ae5af75f9f0c713ad79054c86acfdc9"
+  sha256 "32a67af2abe1cc2c286222e860cfaa99fb24d310b63078496ccfb860bc93e044"
   license "MIT"
 
   depends_on "go" => :build
@@ -41,5 +41,25 @@ class MacosNotifications < Formula
     refute_match(/[\x00-\x09\x0b-\x1f\x7f]/, output)
     refute_path_exists testpath/"unused-source.db"
     assert_equal 0600, (testpath/"fixture.db").stat.mode & 0777
+
+    denied = testpath/"denied-source"
+    denied.mkpath
+    denied.chmod 0000
+    begin
+      ENV["NOTIFICATION_DB"] = (denied/"db").to_s
+      assert_match "Synthetic fixture", shell_output("#{bin}/macos-notifications show 1")
+    ensure
+      denied.chmod 0700
+    end
+
+    rejected = testpath/"source-shaped.db"
+    system "/usr/bin/sqlite3", rejected, "CREATE TABLE app (app_id INTEGER); CREATE TABLE record (rec_id INTEGER);"
+    rejected.chmod 0644
+    before = rejected.binread
+    ENV["NOTIFICATION_DB"] = (testpath/"unused-source.db").to_s
+    ENV["NOTIFICATION_HISTORY"] = rejected.to_s
+    assert_match "source database", shell_output("#{bin}/macos-notifications show 2>&1", 1)
+    assert_equal before, rejected.binread
+    assert_equal 0644, rejected.stat.mode & 0777
   end
 end
